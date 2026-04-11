@@ -67,7 +67,7 @@ const socialLinks = [
   },
   {
     label: 'GitHub',
-    href: '#',
+    href: 'https://github.com/DreamHe-ai',
     icon: '◇',
   },
   {
