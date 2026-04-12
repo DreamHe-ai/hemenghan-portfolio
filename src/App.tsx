@@ -315,6 +315,37 @@ generate({ topic })
             </div>
           </Section>
 
+          {/* 旅游攻略工具 */}
+          <Section delay={150}>
+            <div className="vibe-card">
+              <div className="vibe-card-inner">
+                <div className="vibe-card-header">
+                  <span className="vibe-status-dot" />
+                  <span className="vibe-status-label">在线工具</span>
+                  <span className="vibe-tag">AI · Vibe Coding</span>
+                </div>
+                <h3 className="vibe-card-title">旅游攻略生成器</h3>
+                <p className="vibe-card-desc">根据目的地、出行天数、预算，AI 自动生成专属旅游行程规划，支持多城市比较与一键导出</p>
+                <a
+                  href="https://ncngkpmlwpsr.aiforce.cloud/spark/faas/app_4jxceyqcbkesh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="vibe-card-btn"
+                >
+                  去体验 ↗
+                </a>
+              </div>
+              <div className="vibe-card-decoration">
+                <pre className="code-block">{`// AI 帮你做旅行规划
+trip = generate_travel_plan(
+  destination="北京",
+  days=3,
+  budget="1000元"
+)`}</pre>
+              </div>
+            </div>
+          </Section>
+
           {/* 项目作品 */}
           <Section delay={200}>
             <div className="pw-section">
