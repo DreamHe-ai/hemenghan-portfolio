@@ -939,3 +939,116 @@ body {
     padding: 40px 28px;
   }
 }
+
+/* ===== Drama Section ===== */
+.drama-section {
+  background: var(--bg);
+}
+
+.drama-desc {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: -20px;
+  margin-bottom: 40px;
+}
+
+.drama-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .drama-grid { grid-template-columns: 1fr; }
+}
+
+.drama-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.drama-card:not(.empty):hover {
+  transform: translateY(-2px);
+}
+
+.drama-card.empty {
+  border-style: dashed;
+  opacity: 0.7;
+}
+
+.drama-video-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.drama-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.drama-empty-icon {
+  font-size: 2.5rem;
+  text-align: center;
+  padding: 24px 0 8px;
+}
+
+.empty-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream);
+}
+
+.empty-slot-text {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.drama-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.drama-genre-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 999px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.drama-genre-tag.nv {
+  background: #fce7f3;
+  color: #be185d;
+}
+
+.drama-genre-tag.nan {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.drama-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.drama-card-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+}

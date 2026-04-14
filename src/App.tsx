@@ -392,6 +392,49 @@ trip = generate_travel_plan(
         </div>
       </section>
 
+      {/* 短剧视频 */}
+      <section className="section drama-section" id="drama">
+        <div className="container">
+          <Section>
+            <div className="section-label">短剧作品 · DRAMAS</div>
+            <h2 className="section-title">剧本 × AI 视频</h2>
+            <p className="drama-desc">全部原创剧本 · AI 辅助生成视频 · 独立制作</p>
+          </Section>
+          <div className="drama-grid">
+            <Section delay={100}>
+              <div className="drama-card">
+                <div className="drama-video-wrapper">
+                  <video
+                    controls
+                    src="/drama-nvpin-reborn.mp4"
+                    className="drama-video"
+                    preload="metadata"
+                  />
+                </div>
+                <div className="drama-card-body">
+                  <div className="drama-genre-tag nv">女频</div>
+                  <h3 className="drama-card-title">重生大女主</h3>
+                  <p className="drama-card-note">原创剧本 · AI 视频生成</p>
+                </div>
+              </div>
+            </Section>
+            <Section delay={200}>
+              <div className="drama-card empty">
+                <div className="drama-empty-icon">🎬</div>
+                <div className="drama-video-wrapper empty-slot">
+                  <span className="empty-slot-text">等待上传视频</span>
+                </div>
+                <div className="drama-card-body">
+                  <div className="drama-genre-tag nan">男频</div>
+                  <h3 className="drama-card-title">末世异能</h3>
+                  <p className="drama-card-note">原创剧本 · AI 视频生成</p>
+                </div>
+              </div>
+            </Section>
+          </div>
+        </div>
+      </section>
+
       {/* 作品集 PDF */}
       <section className="section portfolio-section" id="portfolio">
         <div className="container">
