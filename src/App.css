@@ -984,15 +984,20 @@ body {
 
 .drama-video-wrapper {
   width: 100%;
-  aspect-ratio: 16 / 9;
   background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
 }
 
 .drama-video {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
   display: block;
+  margin: 0 auto;
 }
 
 .drama-empty-icon {

@@ -392,25 +392,6 @@ trip = generate_travel_plan(
         </div>
       </section>
 
-      {/* 作品集 PDF */}
-      <section className="section portfolio-section" id="portfolio">
-        <div className="container">
-          <Section>
-            <div className="section-label">作品集 · PORTFOLIO</div>
-            <h2 className="section-title">何梦涵作品集</h2>
-          </Section>
-          <Section delay={100}>
-            <div className="pdf-embed-wrapper">
-              <iframe
-                src="/portfolio.pdf"
-                className="pdf-embed-frame"
-                title="何梦涵作品集"
-              />
-            </div>
-          </Section>
-        </div>
-      </section>
-
       {/* 短剧视频 */}
       <section className="section drama-section" id="drama">
         <div className="container">
@@ -451,6 +432,25 @@ trip = generate_travel_plan(
               </div>
             </Section>
           </div>
+        </div>
+      </section>
+
+      {/* 作品集 PDF */}
+      <section className="section portfolio-section" id="portfolio">
+        <div className="container">
+          <Section>
+            <div className="section-label">作品集 · PORTFOLIO</div>
+            <h2 className="section-title">何梦涵作品集</h2>
+          </Section>
+          <Section delay={100}>
+            <div className="pdf-embed-wrapper">
+              <iframe
+                src="/portfolio.pdf"
+                className="pdf-embed-frame"
+                title="何梦涵作品集"
+              />
+            </div>
+          </Section>
         </div>
       </section>
 
