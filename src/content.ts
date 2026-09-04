@@ -30,7 +30,7 @@ export const SITE = {
     name: '何梦涵',
     title: '短剧编剧 × AI 工作流搭建者',
     quote: '「别人在写剧本，我在写那套写剧本的系统。」',
-    sub: '北京 · 中国矿业大学（北京）25 届',
+    sub: '北京 · 编剧',
     tags: ['ENTJ', '短剧编剧', 'AI 叙事', '互动叙事', 'Vibe Coding'],
     stats: [
       { num: '7', label: '完整剧本' },
