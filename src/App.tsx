@@ -1,81 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './App.css'
-
-const xiaohongshuAccounts = [
-  {
-    name: '墨水荷包蛋',
-    nickname: '成长号',
-    description: '小镇女孩的北漂故事 / 大学生福利 / 实习干货 / 挑战杯 / 校招经验',
-    tags: ['成长叙事', '信息差', '实用工具感'],
-    color: '#c0453a',
-    bgGradient: 'linear-gradient(135deg, #fff5f3 0%, #fde8e6 100%)',
-    link: 'https://www.xiaohongshu.com/user/profile/566d06ebb8c8b433dd2ddc01',
-    emoji: '🫧',
-  },
-  {
-    name: '小浛游玩日记',
-    nickname: '旅游号',
-    description: '北京周边游 / 小众胡同 / 集市灯光节 / 看剧repo / 旅行攻略',
-    tags: ['情绪入口', '悬念钩子', '工具感强'],
-    color: '#2a7a5e',
-    bgGradient: 'linear-gradient(135deg, #f0faf6 0%, #d8f0e6 100%)',
-    link: 'https://www.xiaohongshu.com/user/profile/5d03b83c000000001000c3d6',
-    emoji: '🍧',
-  },
-]
-
-const vibeProjects = [
-  {
-    name: '话术工厂',
-    description: 'AI 驱动的文案生成工具，基于 MiniMax 大模型，支持多场景话术批量生产',
-    url: 'https://87xiy3f9qrul.space.minimaxi.com',
-    tag: 'Vibe Coding · AI',
-    status: '在线运行中',
-  },
-]
-
-const projectWorks = [
-  {
-    title: '美国区 TikTok TAP',
-    subtitle: '海外 & 国内社媒运营',
-    description: '负责商家与美区 TikTok 达人 KOL/KOC 的 Affiliate 联盟全链路合作，设计"固定坑位费 + CPS 分佣"佣金结构，推动达人短视频挂车 Campaign 落地。',
-    highlights: ['建立达人分级体系（S/A/B 级），月均筛选合作 50+ 达人', '某家居单品周销量提升 200%'],
-    stats: [{ value: '50+', label: '合作达人' }, { value: '200%', label: '销量提升' }],
-    tags: ['TikTok', '达人运营', 'Affiliate 营销', '数据分析'],
-  },
-  {
-    title: '海外 AI 陪伴项目',
-    subtitle: '内容运营 & 海外达人运营',
-    description: '利用 Vidu 生动图、Midjourney 文生图和 ChatGPT 辅助创造智能体（AI 虚拟伴侣），推动用户增长和留存提升。',
-    highlights: ['创造智能体 500+，用户使用量超 10w', '推动用户日均互动频次提升 30%，30 日留存率提高 20%', '部署模型分析竞品搜索词库，挖掘长尾情感需求关键词 380+'],
-    stats: [{ value: '500+', label: '智能体' }, { value: '10w+', label: '使用量' }, { value: '20%', label: '留存提升' }],
-    tags: ['AI 产品', 'AIGC', '内容运营', '用户增长'],
-    screenshot: '/ai-companion.png',
-  },
-]
-
-const socialLinks = [
-  {
-    label: '小红书',
-    href: 'https://www.xiaohongshu.com/user/profile/566d06ebb8c8b433dd2ddc01',
-    icon: '△',
-  },
-  {
-    label: '简历 PDF',
-    href: '/resume.pdf',
-    icon: '◎',
-  },
-  {
-    label: 'GitHub',
-    href: 'https://github.com/DreamHe-ai',
-    icon: '◇',
-  },
-  {
-    label: '邮件',
-    href: 'mailto:hemenghan227@163.com',
-    icon: '○',
-  },
-]
+import { SITE } from './content'
 
 function useIntersectionObserver(options = {}) {
   const ref = useRef<HTMLDivElement>(null)
@@ -131,6 +56,11 @@ function Blob({ top, right, bottom, left, color, size, delay }: {
   )
 }
 
+/* ---------- 小组件：待填角标 ---------- */
+function TodoBadge() {
+  return <span className="todo-badge">待填</span>
+}
+
 export default function App() {
   const [heroVisible, setHeroVisible] = useState(false)
   useEffect(() => {
@@ -138,16 +68,20 @@ export default function App() {
     return () => clearTimeout(t)
   }, [])
 
+  const p = SITE.profile
+
   return (
     <div className="app">
       {/* Nav */}
       <nav className="nav">
         <div className="nav-inner">
-          <span className="nav-logo">何梦涵</span>
+          <span className="nav-logo">{p.name}</span>
           <div className="nav-links">
             <a href="#about">关于</a>
-            <a href="#xiaohongshu">小红书</a>
-            <a href="#vibe">Vibe Coding</a>
+            <a href="#factory">AI 工厂</a>
+            <a href="#drama">短剧</a>
+            <a href="#interactive">互动影游</a>
+            <a href="#vibe">Vibe</a>
             <a href="#portfolio">作品集</a>
           </div>
         </div>
@@ -161,24 +95,23 @@ export default function App() {
           <Blob color="#f0ede6" size={180} top="40%" left="10%" delay={-5} />
         </div>
         <div className={`hero-content ${heroVisible ? 'hero-visible' : ''}`}>
-          <div className="hero-emoji">🫧</div>
-          <h1 className="hero-title">何梦涵</h1>
-          <p className="hero-subtitle">墨水荷包蛋 · 市场营销人 · Vibe Coder</p>
-          <p className="hero-desc">
-            在剧本里写人间烟火，在代码里造有趣灵魂。
-            <br />
-            中国矿业大学（北京）25届 · 市场营销人 · Vibe Coder
-          </p>
+          <div className="hero-emoji">{p.emoji}</div>
+          <h1 className="hero-title">{p.name}</h1>
+          <p className="hero-subtitle">{p.title}</p>
+          <p className="hero-quote">{p.quote}</p>
+          <p className="hero-desc">{p.sub}</p>
+          <div className="hero-stats">
+            {p.stats.map(s => (
+              <div key={s.label} className="hero-stat">
+                <span className="hero-stat-num">{s.num}</span>
+                <span className="hero-stat-label">{s.label}</span>
+              </div>
+            ))}
+          </div>
           <div className="hero-tags">
-            <span>ENTJ</span>
-            <span>·</span>
-            <span>创意写作</span>
-            <span>·</span>
-            <span>AI 工具</span>
-            <span>·</span>
-            <span>全链路营销</span>
-            <span>·</span>
-            <span>Vibe Coding</span>
+            {p.tags.map((t, i) => (
+              <span key={t}>{i > 0 && <span className="tag-dot">·</span>}{t}</span>
+            ))}
           </div>
         </div>
         <div className="hero-scroll-hint"><span>↓</span></div>
@@ -189,48 +122,38 @@ export default function App() {
         <div className="container">
           <Section>
             <div className="section-label">关于我 · ABOUT</div>
-            <h2 className="section-title">用营销思维讲故事<br />用代码把效率翻倍</h2>
+            <h2 className="section-title">{SITE.about.heading[0]}<br />{SITE.about.heading[1]}</h2>
           </Section>
           <div className="about-grid">
             <Section delay={100} className="about-left">
-              <div className="about-tagline">
-                「我叫何梦涵，不是在写文案，就是在教 AI 写文案。」
-              </div>
-              <p className="about-desc">
-                本科期间积累了互联网大厂、4A 广告公司、央企出版社、AI 大模型独角兽的多元经历，主攻内容营销与数据增长的交叉地带。
-              </p>
-              <p className="about-desc">
-                擅长从需求洞察到活动执行到数据复盘的全链路营销策划，曾组织策划 200+ 场线上线下活动，建联达人 300+ 位。热爱把繁琐的工作流用 AI 自动化，在 Vibe Coding 里找创意自由。
-              </p>
+              <div className="about-tagline">{SITE.about.tagline}</div>
+              {SITE.about.paras.map((t, i) => (
+                <p key={i} className="about-desc">{t}</p>
+              ))}
             </Section>
             <Section delay={200} className="about-right">
               <div className="skill-group">
                 <h4 className="skill-group-title">🛠 技能栈</h4>
                 <div className="skill-tags">
-                  {['Python', 'SQL', 'C++', 'SPSS', 'Axure', 'Blender', 'Google Ads', 'SEO / SEM'].map(s => (
-                    <span key={s} className="skill-tag">{s}</span>
-                  ))}
+                  {SITE.about.skills.map(s => <span key={s} className="skill-tag">{s}</span>)}
                 </div>
               </div>
               <div className="skill-group">
                 <h4 className="skill-group-title">🤖 AI 工具</h4>
                 <div className="skill-tags">
-                  {['ENTJ', 'OpenClaw', 'ChatGPT', 'Claude', 'Midjourney', 'Stable Diffusion', 'AI Agent', 'Vibe Coding'].map(s => (
-                    <span key={s} className="skill-tag ai">{s}</span>
-                  ))}
+                  {SITE.about.aiTools.map(s => <span key={s} className="skill-tag ai">{s}</span>)}
                 </div>
               </div>
               <div className="skill-group">
                 <h4 className="skill-group-title">🏢 经历</h4>
                 <div className="exp-list">
-                  {[
-                    { company: '小米', role: 'SEO 实习生', period: '北京' },
-                    { company: '中信出版集团', role: '营销编辑实习生', period: '北京' },
-                    { company: '蓝色光标', role: 'AE 公关实习生', period: '北京' },
-                  ].map(e => (
-                    <div key={e.company} className="exp-item">
-                      <span className="exp-company">{e.company}</span>
-                      <span className="exp-role">{e.role}</span>
+                  {SITE.about.experience.map(e => (
+                    <div key={e.org} className="exp-item">
+                      <div className="exp-row">
+                        <span className="exp-company">{e.org}</span>
+                        <span className="exp-role">{e.role}</span>
+                      </div>
+                      {e.note && <span className="exp-note">{e.note}</span>}
                     </div>
                   ))}
                 </div>
@@ -240,30 +163,199 @@ export default function App() {
         </div>
       </section>
 
+      {/* AI 编剧工厂 */}
+      <section className="section factory-section" id="factory">
+        <div className="container">
+          <Section>
+            <div className="section-label">{SITE.factory.eyebrow}</div>
+            <h2 className="section-title">{SITE.factory.heading}</h2>
+            <p className="factory-desc">{SITE.factory.desc}</p>
+          </Section>
+
+          {/* 三权分立 */}
+          <div className="agent-grid">
+            {SITE.factory.agents.map((a, i) => (
+              <Section key={a.id} delay={i * 120}>
+                <div className="agent-card">
+                  <div className="agent-id">&lt;{a.id} /&gt;</div>
+                  <h3 className="agent-name">{a.name}</h3>
+                  <p className="agent-desc">{a.desc}</p>
+                  <div className="agent-rule do"><span>✓</span>{a.duty}</div>
+                  <div className="agent-rule dont"><span>✕</span>{a.taboo}</div>
+                </div>
+              </Section>
+            ))}
+          </div>
+
+          {/* SOP 流水线 */}
+          <Section delay={100}>
+            <div className="sop-box">
+              <div className="sop-title">九节点 SOP · 每个关口独立验收</div>
+              <div className="sop-flow">
+                {SITE.factory.sop.map((s, i) => (
+                  <div key={i} className={`sop-step ${s.review ? 'review' : ''}`}>
+                    <span className="sop-num">{String(i + 1).padStart(2, '0')}</span>
+                    <span className="sop-text">{s.t}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="sop-note">{SITE.factory.sopNote}</p>
+            </div>
+          </Section>
+
+          <div className="factory-bottom">
+            <Section delay={100}>
+              <div className="bible-card">
+                <div className="bible-title">📖 {SITE.factory.bible.title}</div>
+                <p className="bible-desc">{SITE.factory.bible.desc}</p>
+                <ul className="bible-list">
+                  {SITE.factory.bible.items.map(it => <li key={it}>{it}</li>)}
+                </ul>
+              </div>
+            </Section>
+            <Section delay={200}>
+              <div className="stack-card">
+                <div className="bible-title">⚙️ {SITE.factory.stackChips[0] ? '引擎与素材分离' : ''}</div>
+                <p className="bible-desc">写作引擎与素材引擎分离：拆解的 AI 不参与创作，创作的 AI 不碰素材。</p>
+                <div className="stack-chips">
+                  {SITE.factory.stackChips.map(c => (
+                    <span key={c.t} className={`stack-chip ${c.hl ? 'hl' : ''}`}>{c.t}</span>
+                  ))}
+                </div>
+              </div>
+            </Section>
+          </div>
+        </div>
+      </section>
+
+      {/* 短剧作品 */}
+      <section className="section drama-section" id="drama">
+        <div className="container">
+          <Section>
+            <div className="section-label">{SITE.dramas.eyebrow}</div>
+            <h2 className="section-title">{SITE.dramas.heading}</h2>
+            <p className="drama-desc">{SITE.dramas.desc}</p>
+          </Section>
+
+          {/* 国内 */}
+          <div className="drama-list">
+            {SITE.dramas.domestic.map((d, i) => (
+              <Section key={i} delay={(i % 3) * 80}>
+                <div className={`drama-item ${d.todo ? 'is-todo' : ''} ${d.featured ? 'is-featured' : ''}`}>
+                  {d.todo && <TodoBadge />}
+                  <div className="drama-item-top">
+                    <span className={`status-pill st-${d.status.replace(/\s/g, '')}`}>{d.status}</span>
+                    {d.platform && <span className="drama-platform">{d.platform}</span>}
+                  </div>
+                  <h3 className="drama-item-title">{d.title}</h3>
+                  <div className="drama-item-genre">{d.genre}</div>
+                  <p className="drama-item-logline">{d.logline}</p>
+                  <div className="drama-item-meta">
+                    <span>{d.episodes}</span>
+                    <span>·</span>
+                    <span>付费卡点 {d.paywall}</span>
+                  </div>
+                </div>
+              </Section>
+            ))}
+          </div>
+
+          {/* 海外短剧 */}
+          <div className="overseas-block">
+            <Section>
+              <div className="sub-header">
+                <span className="sub-header-label">{SITE.dramas.overseas.eyebrow}</span>
+                <h3 className="sub-header-title">{SITE.dramas.overseas.heading}</h3>
+                <p className="sub-header-desc">{SITE.dramas.overseas.desc}</p>
+              </div>
+            </Section>
+            <div className="drama-list overseas">
+              {SITE.dramas.overseas.items.map((d, i) => (
+                <Section key={i} delay={i * 80}>
+                  <div className={`drama-item ${d.todo ? 'is-todo' : ''}`}>
+                    {d.todo && <TodoBadge />}
+                    <div className="drama-item-top">
+                      <span className="status-pill st-待补充">{d.status}</span>
+                      <span className="drama-platform">{d.market}</span>
+                    </div>
+                    <h3 className="drama-item-title">{d.title}</h3>
+                    <div className="drama-item-genre">{d.genre}</div>
+                    <p className="drama-item-logline">{d.logline}</p>
+                    <div className="drama-item-meta"><span>{d.episodes}</span></div>
+                  </div>
+                </Section>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 互动影游 */}
+      <section className="section interactive-section" id="interactive">
+        <div className="container">
+          <Section>
+            <div className="section-label">{SITE.interactive.eyebrow}</div>
+            <h2 className="section-title">{SITE.interactive.heading}</h2>
+            <p className="drama-desc">{SITE.interactive.desc}</p>
+          </Section>
+
+          {SITE.interactive.items.map((it, i) => (
+            <Section key={i} delay={100}>
+              <div className="int-card">
+                <div className="int-info">
+                  <div className="int-top">
+                    <span className="status-pill st-已上线">{it.status}</span>
+                    <span className="int-subtitle">{it.subtitle}</span>
+                  </div>
+                  <h3 className="int-title">{it.title}</h3>
+                  <p className="int-logline">{it.logline}</p>
+                  <div className="int-stats">
+                    <div className="int-stat"><span className="int-stat-num">{it.branches.split(' + ')[0].replace(/\D/g, '')}</span><span>核心分支</span></div>
+                    <div className="int-stat"><span className="int-stat-num">{it.nodes.replace(/\D/g, '')}</span><span>互动节点</span></div>
+                    <div className="int-stat"><span className="int-stat-num">5</span><span>结局（含失败）</span></div>
+                  </div>
+                  <div className="int-meta">
+                    <div><b>担任</b>{it.role}</div>
+                    <div><b>分支</b>{it.branches}</div>
+                    <div><b>结局</b>{it.endings}</div>
+                  </div>
+                  <div className="int-actions">
+                    <a href={it.demo} target="_blank" rel="noopener noreferrer" className="vibe-card-btn">试玩可交互 Demo ↗</a>
+                  </div>
+                </div>
+                <div className="int-demo">
+                  <iframe
+                    src={it.demo}
+                    title={`${it.title} 互动 Demo`}
+                    loading="lazy"
+                    className="int-demo-frame"
+                  />
+                </div>
+              </div>
+            </Section>
+          ))}
+        </div>
+      </section>
+
       {/* 小红书 */}
       <section className="section xhs-section" id="xiaohongshu">
         <div className="container">
           <Section>
-            <div className="section-label">小红书 · CREATIONS</div>
-            <h2 className="section-title">两个账号，一种表达</h2>
+            <div className="section-label">{SITE.xhs.eyebrow}</div>
+            <h2 className="section-title">{SITE.xhs.heading}</h2>
           </Section>
           <div className="xhs-grid">
-            {xiaohongshuAccounts.map((account, i) => (
+            {SITE.xhs.items.map((account, i) => (
               <Section delay={i * 150} key={account.name}>
-                <a
-                  href={account.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="xhs-card"
-                  style={{ background: account.bgGradient } as React.CSSProperties}
-                >
+                <a href={account.link} target="_blank" rel="noopener noreferrer"
+                  className="xhs-card" style={{ background: account.bg } as React.CSSProperties}>
                   <div className="xhs-card-emoji">{account.emoji}</div>
                   <div className="xhs-card-body">
                     <div className="xhs-card-meta">
                       <span className="xhs-card-name">{account.name}</span>
                       <span className="xhs-card-badge" style={{ background: account.color }}>{account.nickname}</span>
                     </div>
-                    <p className="xhs-card-desc">{account.description}</p>
+                    <p className="xhs-card-desc">{account.desc}</p>
                     <div className="xhs-card-tags">
                       {account.tags.map(t => (
                         <span key={t} className="tag" style={{ borderColor: account.color, color: account.color }}>{t}</span>
@@ -282,69 +374,29 @@ export default function App() {
       <section className="section vibe-section" id="vibe">
         <div className="container">
           <Section>
-            <div className="section-label">VIBE CODING · PROJECTS</div>
-            <h2 className="section-title">用 AI 写代码，用代码造玩具</h2>
+            <div className="section-label">{SITE.projects.eyebrow}</div>
+            <h2 className="section-title">{SITE.projects.heading}</h2>
           </Section>
 
-          {/* 话术工厂 */}
-          <Section delay={100}>
-            <div className="vibe-card">
-              <div className="vibe-card-inner">
-                <div className="vibe-card-header">
-                  <span className="vibe-status-dot" />
-                  <span className="vibe-status-label">{vibeProjects[0].status}</span>
-                  <span className="vibe-tag">{vibeProjects[0].tag}</span>
+          {SITE.projects.items.map((pr, i) => (
+            <Section key={pr.title} delay={100 + i * 50}>
+              <div className="vibe-card">
+                <div className="vibe-card-inner">
+                  <div className="vibe-card-header">
+                    <span className="vibe-status-dot" />
+                    <span className="vibe-status-label">{pr.badge}</span>
+                    <span className="vibe-tag">{pr.tag}</span>
+                  </div>
+                  <h3 className="vibe-card-title">{pr.title}</h3>
+                  <p className="vibe-card-desc">{pr.desc}</p>
+                  <a href={pr.link} target="_blank" rel="noopener noreferrer" className="vibe-card-btn">{pr.btn}</a>
                 </div>
-                <h3 className="vibe-card-title">{vibeProjects[0].name}</h3>
-                <p className="vibe-card-desc">{vibeProjects[0].description}</p>
-                <a
-                  href={vibeProjects[0].url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="vibe-card-btn"
-                >
-                  去看看 ↗
-                </a>
-              </div>
-              <div className="vibe-card-decoration">
-                <pre className="code-block">{`// 正在用 AI 造梦
-const dream = "话术工厂"
-generate({ topic })
-  -> "批量话术"`}</pre>
-              </div>
-            </div>
-          </Section>
-
-          {/* 旅游攻略工具 */}
-          <Section delay={150}>
-            <div className="vibe-card">
-              <div className="vibe-card-inner">
-                <div className="vibe-card-header">
-                  <span className="vibe-status-dot" />
-                  <span className="vibe-status-label">在线工具</span>
-                  <span className="vibe-tag">AI · Vibe Coding</span>
+                <div className="vibe-card-decoration">
+                  <pre className="code-block">{pr.code}</pre>
                 </div>
-                <h3 className="vibe-card-title">旅游攻略生成器</h3>
-                <p className="vibe-card-desc">根据目的地、出行天数、预算，AI 自动生成专属旅游行程规划，支持多城市比较与一键导出</p>
-                <a
-                  href="https://ncngkpmlwpsr.aiforce.cloud/spark/faas/app_4jxceyqcbkesh"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="vibe-card-btn"
-                >
-                  去体验 ↗
-                </a>
               </div>
-              <div className="vibe-card-decoration">
-                <pre className="code-block">{`// AI 帮你做旅行规划
-trip = generate_travel_plan(
-  destination="北京",
-  days=3,
-  budget="1000元"
-)`}</pre>
-              </div>
-            </div>
-          </Section>
+            </Section>
+          ))}
 
           {/* 项目作品 */}
           <Section delay={200}>
@@ -354,34 +406,30 @@ trip = generate_travel_plan(
                 <div className="pw-gradient-line" />
               </div>
               <div className="pw-grid">
-                {projectWorks.map((p, i) => (
+                {SITE.projects.works.map((wk, i) => (
                   <div key={i} className="pw-card">
                     <div className="pw-card-top">
-                      <span className="pw-card-title">{p.title}</span>
-                      <span className="pw-card-subtitle">{p.subtitle}</span>
+                      <span className="pw-card-title">{wk.title}</span>
+                      <span className="pw-card-subtitle">{wk.subtitle}</span>
                     </div>
-                    <p className="pw-card-desc">{p.description}</p>
+                    <p className="pw-card-desc">{wk.desc}</p>
                     <ul className="pw-highlights">
-                      {p.highlights.map((h, j) => (
-                        <li key={j}>{h}</li>
-                      ))}
+                      {wk.highlights.map((h, j) => <li key={j}>{h}</li>)}
                     </ul>
                     <div className="pw-stats">
-                      {p.stats.map((s, k) => (
+                      {wk.stats.map((s, k) => (
                         <div key={k} className="pw-stat">
-                          <span className="pw-stat-value">{s.value}</span>
-                          <span className="pw-stat-label">{s.label}</span>
+                          <span className="pw-stat-value">{s.n}</span>
+                          <span className="pw-stat-label">{s.l}</span>
                         </div>
                       ))}
                     </div>
                     <div className="pw-tags">
-                      {p.tags.map((t, l) => (
-                        <span key={l} className="pw-tag">{t}</span>
-                      ))}
+                      {wk.tags.map(t => <span key={t} className="pw-tag">{t}</span>)}
                     </div>
-                    {p.screenshot && (
+                    {wk.screenshot && (
                       <div className="pw-screenshot">
-                        <img src={p.screenshot} alt={p.title + ' 产品截图'} />
+                        <img src={wk.screenshot} alt={wk.title + ' 产品截图'} />
                       </div>
                     )}
                   </div>
@@ -392,63 +440,16 @@ trip = generate_travel_plan(
         </div>
       </section>
 
-      {/* 短剧视频 */}
-      <section className="section drama-section" id="drama">
-        <div className="container">
-          <Section>
-            <div className="section-label">短剧作品 · DRAMAS</div>
-            <h2 className="section-title">剧本 × AI 视频</h2>
-            <p className="drama-desc">全部原创剧本 · AI 辅助生成视频 · 独立制作</p>
-          </Section>
-          <div className="drama-grid">
-            <Section delay={100}>
-              <div className="drama-card">
-                <div className="drama-video-wrapper">
-                  <video
-                    controls
-                    src="/drama-nvpin-reborn.mp4"
-                    className="drama-video"
-                    preload="metadata"
-                  />
-                </div>
-                <div className="drama-card-body">
-                  <div className="drama-genre-tag nv">女频</div>
-                  <h3 className="drama-card-title">重生大女主</h3>
-                  <p className="drama-card-note">原创剧本 · AI 视频生成</p>
-                </div>
-              </div>
-            </Section>
-            <Section delay={200}>
-              <div className="drama-card empty">
-                <div className="drama-empty-icon">🎬</div>
-                <div className="drama-video-wrapper empty-slot">
-                  <span className="empty-slot-text">等待上传视频</span>
-                </div>
-                <div className="drama-card-body">
-                  <div className="drama-genre-tag nan">男频</div>
-                  <h3 className="drama-card-title">末世异能</h3>
-                  <p className="drama-card-note">原创剧本 · AI 视频生成</p>
-                </div>
-              </div>
-            </Section>
-          </div>
-        </div>
-      </section>
-
       {/* 作品集 PDF */}
       <section className="section portfolio-section" id="portfolio">
         <div className="container">
           <Section>
             <div className="section-label">作品集 · PORTFOLIO</div>
-            <h2 className="section-title">何梦涵作品集</h2>
+            <h2 className="section-title">{p.name}作品集</h2>
           </Section>
           <Section delay={100}>
             <div className="pdf-embed-wrapper">
-              <iframe
-                src="/portfolio.pdf"
-                className="pdf-embed-frame"
-                title="何梦涵作品集"
-              />
+              <iframe src="/portfolio.pdf" className="pdf-embed-frame" title={`${p.name}作品集`} />
             </div>
           </Section>
         </div>
@@ -459,25 +460,21 @@ trip = generate_travel_plan(
         <div className="container">
           <Section>
             <div className="footer-inner">
-              <p className="footer-tagline">「在文字和代码之间，我在找自己。」</p>
+              <p className="footer-tagline">{SITE.footer.tagline}</p>
               <div className="footer-links">
-                {socialLinks.map(link => (
-                  <a
-                    key={link.label}
-                    href={link.href}
+                {SITE.footer.links.map(link => (
+                  <a key={link.label} href={link.href}
                     target={link.href.startsWith('http') ? '_blank' : undefined}
-                    rel="noopener noreferrer"
-                    className="footer-link"
-                  >
+                    rel="noopener noreferrer" className="footer-link">
                     <span className="footer-link-icon">{link.icon}</span>
                     {link.label}
                   </a>
                 ))}
               </div>
               <div className="footer-bottom">
-                <span>© 2025 何梦涵</span>
+                <span>{SITE.footer.copyright}</span>
                 <span className="footer-divider">·</span>
-                <span>built with vibe &amp; ink</span>
+                <span>{SITE.footer.note}</span>
               </div>
             </div>
           </Section>
