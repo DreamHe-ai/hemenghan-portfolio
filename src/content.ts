@@ -150,7 +150,7 @@ export const SITE = {
     desc: '分支叙事 × 选择驱动，写的不只是故事，是一棵会分叉的树。',
     items: [
       {
-        status: '策划完成',
+        status: 'Playable · 可试玩',
         title: '皇弟为穿越女折辱我？我联手情敌夺皇位',
         subtitle: '古风 · 大周 · 女性称帝',
         logline: '庆功宴上，镇国长公主萧玉卿被皇弟削爵、丈夫斥责、亲子辱骂。她拔剑斩断温情，联手穿越女商与蒙冤才女，一步一步走上那把龙椅。',
@@ -158,7 +158,7 @@ export const SITE = {
         branches: '4 核心分支 + 8 路径分支 + 12 风味分支',
         nodes: '8 个互动节点',
         endings: '4 结局 + 1 失败结局',
-        demo: '/demo/interactive-drama.html',
+        demo: '/demo/interactive-video.html',
       },
     ],
   },
