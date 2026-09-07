@@ -31,7 +31,7 @@ export const SITE = {
     title: '短剧编剧 × AI 工作流搭建者',
     quote: '「在剧本里写人间烟火，在代码里造有趣灵魂。」',
     sub: '北京 · 编剧',
-    tags: ['ENTJ', '短剧编剧', 'AI 叙事', '互动叙事', 'Vibe Coding'],
+    tags: ['短剧编剧', 'AI 叙事', '互动叙事', 'Vibe Coding'],
   },
 
   /* ---------- 2. 关于我 ---------- */
@@ -43,9 +43,9 @@ export const SITE = {
       '如今在短剧公司做全职编剧，已产出 9 本完整剧本、4 部上线、5 部在制作或排期。同时我把整套创作流程用 AI 自动化——搭了一条「AI 编剧工厂」，两三天出一本剧本。',
     ],
     skills: ['Python', 'SQL', 'C++', 'SPSS', 'Axure', 'Blender', 'Google Ads', 'SEO / SEM'],
-    aiTools: ['ENTJ', 'WorkBuddy', 'DeepSeek', 'ChatGPT', 'Claude', 'Midjourney', 'Coze', 'Vibe Coding'],
+    aiTools: ['WorkBuddy', 'DeepSeek', 'ChatGPT', 'Claude', 'Midjourney', 'Coze', 'Vibe Coding'],
     experience: [
-      { org: '某头部短剧公司', role: '编剧（全职）', note: '9 本完整剧本 · 4 部上线' },
+      { org: '点众科技', role: '编剧（全职）' },
       { org: '小米', role: 'SEO 实习生', note: '北京' },
       { org: '中信出版集团', role: '营销编辑实习生', note: '北京' },
       { org: '蓝色光标', role: 'AE 公关实习生', note: '北京' },
