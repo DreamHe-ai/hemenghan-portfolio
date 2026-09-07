@@ -144,6 +144,23 @@
   .hint {
     margin-top: 12px; font-size: 12px; color: #a3948a; text-align: center; line-height: 1.7;
   }
+  /* 点击开始遮罩（浏览器拦截自动播放时的兜底） */
+  .tap-play {
+    position: absolute; inset: 0; z-index: 6;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px; background: rgba(0,0,0,.45); cursor: pointer;
+  }
+  .tap-play.hide { display: none; }
+  .tap-play .play-icon {
+    width: 68px; height: 68px; border-radius: 50%;
+    background: rgba(255,255,255,.94); color: var(--brick);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; padding-left: 6px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.35);
+  }
+  .tap-play .play-text {
+    color: #fff; font-size: 14px; letter-spacing: 3px; text-shadow: 0 2px 6px #000;
+  }
 </style>
 </head>
 <body>
@@ -152,7 +169,7 @@
   <div class="subtitle">你是镇国长公主萧玉卿 —— 你的选择，决定大周的命运</div>
 
   <div class="player-wrap" id="playerWrap">
-    <video id="video" playsinline preload="metadata"></video>
+    <video id="video" playsinline preload="metadata" controls></video>
 
     <div class="hud">
       <span class="node-name" id="nodeName">NODE_001 · 夜宴</span>
@@ -160,6 +177,11 @@
     </div>
 
     <div class="transition-tip" id="transitionTip">当 夜 · 书 房</div>
+
+    <div class="tap-play" id="tapPlay">
+      <div class="play-icon">▶</div>
+      <div class="play-text">点击开始试玩</div>
+    </div>
 
     <div class="choice-overlay" id="choiceOverlay">
       <div class="choice-question" id="choiceQuestion"></div>
@@ -244,25 +266,45 @@ const endPathEl = document.getElementById("endPath");
 const nodeNameEl = document.getElementById("nodeName");
 const ctaBtn = document.getElementById("ctaBtn");
 const tipEl = document.getElementById("transitionTip");
+const tapPlay = document.getElementById("tapPlay");
 
 let currentId = "n1";
+let currentDur = 0;
 let trail = [];
 let gains = [];
 let ended = false;
+
+// 播放尝试：成功则隐藏点击遮罩，失败（浏览器拦截自动播放）则显示遮罩等用户点
+function tryPlay() {
+  video.play().then(() => {
+    tapPlay.classList.add("hide");
+  }).catch(() => {
+    tapPlay.classList.remove("hide");
+  });
+}
+tapPlay.addEventListener("click", () => { tryPlay(); });
 
 function loadNode(id, skipTip) {
   const node = SEGMENTS[id];
   if (!node) return;
   currentId = id;
   ended = false;
+  currentDur = 0;
   overlay.classList.remove("show");
   endingEl.classList.remove("show");
   nodeNameEl.textContent = node.label;
 
+  // 结局节点没有视频，直接展示结局面板
+  if (node.ending && !node.src) {
+    tapPlay.classList.add("hide");
+    showEnding(node);
+    return;
+  }
+
   const doLoad = () => {
     video.src = node.src;
     video.currentTime = node.start || 0;
-    video.play().catch(() => {});
+    tryPlay();
   };
 
   // 强制节点跳转时，先放一个黑场转场卡
@@ -275,23 +317,44 @@ function loadNode(id, skipTip) {
   }
 }
 
+video.addEventListener("loadedmetadata", () => {
+  currentDur = video.duration || 0;
+});
+
 video.addEventListener("timeupdate", () => {
   const node = SEGMENTS[currentId];
   if (!node || ended) return;
   const t = video.currentTime;
 
-  if (node.choice && !overlay.classList.contains("show") && t >= node.choice.time) {
+  // 选项触发点：不能超过视频实际时长
+  if (node.choice && !overlay.classList.contains("show") &&
+      node.choice.time && t >= node.choice.time &&
+      (!currentDur || node.choice.time < currentDur - 0.2)) {
     ended = true;
     video.pause();
     showChoices(node.choice);
     return;
   }
-  if (t >= node.end) {
+  // 节点结束点：取配置值与实际时长中较小的一个
+  const endT = node.end
+    ? (currentDur ? Math.min(node.end, currentDur - 0.15) : node.end)
+    : (currentDur ? currentDur - 0.05 : 0);
+  if (endT && t >= endT) {
     ended = true;
     if (node.ending) { showEnding(node); return; }
     if (node.next) { loadNode(node.next); return; }
     if (node.choice) { video.pause(); showChoices(node.choice); }
   }
+});
+
+// 兜底：视频自然播完（timeupdate 可能来不及触发）
+video.addEventListener("ended", () => {
+  const node = SEGMENTS[currentId];
+  if (!node || ended) return;
+  ended = true;
+  if (node.ending) { showEnding(node); return; }
+  if (node.next) { loadNode(node.next); return; }
+  if (node.choice) { showChoices(node.choice); }
 });
 
 function showChoices(choice) {
