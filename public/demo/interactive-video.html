@@ -191,7 +191,6 @@
     <div class="ending-panel" id="endingPanel">
       <div class="end-title" id="endTitle"></div>
       <div class="end-quote" id="endQuote"></div>
-      <div class="end-gains" id="endGains"></div>
       <div class="end-path" id="endPath"></div>
       <a class="cta-btn" id="ctaBtn" href="#" target="_blank">免费看正片 · 扶摇携卿踏景云</a>
       <button class="restart-btn" id="restartBtn">换个选择再玩一次</button>
@@ -261,7 +260,6 @@ const buttonsEl = document.getElementById("choiceButtons");
 const endingEl = document.getElementById("endingPanel");
 const endTitleEl = document.getElementById("endTitle");
 const endQuoteEl = document.getElementById("endQuote");
-const endGainsEl = document.getElementById("endGains");
 const endPathEl = document.getElementById("endPath");
 const nodeNameEl = document.getElementById("nodeName");
 const ctaBtn = document.getElementById("ctaBtn");
@@ -271,7 +269,6 @@ const tapPlay = document.getElementById("tapPlay");
 let currentId = "n1";
 let currentDur = 0;
 let trail = [];
-let gains = [];
 let ended = false;
 
 // 播放尝试：成功则隐藏点击遮罩，失败（浏览器拦截自动播放）则显示遮罩等用户点
@@ -363,11 +360,9 @@ function showChoices(choice) {
   choice.options.forEach((opt) => {
     const btn = document.createElement("button");
     btn.className = "choice-btn";
-    btn.innerHTML = '<span class="tag">' + opt.tag + "</span>" + opt.text +
-                    '<span class="gains">▸ ' + opt.gains + "</span>";
+    btn.innerHTML = '<span class="tag">' + opt.tag + "</span>" + opt.text;
     btn.onclick = () => {
       trail.push(opt.tag + "：" + opt.text);
-      gains.push(opt.gains);
       loadNode(opt.next, true);
     };
     buttonsEl.appendChild(btn);
@@ -380,13 +375,12 @@ function showEnding(node) {
   video.pause();
   endTitleEl.textContent = e.title;
   endQuoteEl.innerHTML = (e.quote || "").split("\n").map(s => "<p style='margin:4px 0'>" + s + "</p>").join("");
-  endGainsEl.textContent = gains.length ? "本局收益：" + gains.join("　") : "";
   endPathEl.innerHTML = "你的路线：" + (trail.length ? trail.join("<br>") : "——");
   ctaBtn.href = CTA_URL;
   endingEl.classList.add("show");
 }
 
-document.getElementById("restartBtn").onclick = () => { trail = []; gains = []; loadNode("n1"); };
+document.getElementById("restartBtn").onclick = () => { trail = []; loadNode("n1"); };
 
 video.addEventListener("error", () => {
   nodeNameEl.textContent = "⚠️ 视频加载失败";
