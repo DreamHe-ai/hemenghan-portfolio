@@ -29,11 +29,10 @@ export const SITE = {
     emoji: '🫧',
     name: '何梦涵',
     title: '短剧编剧 × AI 工作流搭建者',
-    quote: '「别人在写剧本，我在写那套写剧本的系统。」',
+    quote: '「在剧本里写人间烟火，在代码里造有趣灵魂。」',
     sub: '北京 · 编剧',
     tags: ['ENTJ', '短剧编剧', 'AI 叙事', '互动叙事', 'Vibe Coding'],
     stats: [
-      { num: '7', label: '完整剧本' },
       { num: '1', label: '已上线' },
       { num: '6', label: '制作 / 排期中' },
       { num: '2–3', label: '天出一本' },
