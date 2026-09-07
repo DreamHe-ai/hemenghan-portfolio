@@ -100,14 +100,6 @@ export default function App() {
           <p className="hero-subtitle">{p.title}</p>
           <p className="hero-quote">{p.quote}</p>
           <p className="hero-desc">{p.sub}</p>
-          <div className="hero-stats">
-            {p.stats.map(s => (
-              <div key={s.label} className="hero-stat">
-                <span className="hero-stat-num">{s.num}</span>
-                <span className="hero-stat-label">{s.label}</span>
-              </div>
-            ))}
-          </div>
           <div className="hero-tags">
             {p.tags.map((t, i) => (
               <span key={t}>{i > 0 && <span className="tag-dot">·</span>}{t}</span>
