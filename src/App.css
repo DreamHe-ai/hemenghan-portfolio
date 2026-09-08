@@ -1365,6 +1365,17 @@ body {
   padding-top: 10px;
 }
 
+.drama-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: #c0453a;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+}
+.drama-link:hover { opacity: 0.75; }
+
 /* ---- 海外短剧子区 ---- */
 .overseas-block {
   margin-top: 64px;
