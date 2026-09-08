@@ -20,6 +20,7 @@ export interface DramaItem {
   episodes: string
   paywall: string
   featured?: boolean
+  link?: string
 }
 
 export const SITE = {
@@ -101,17 +102,26 @@ export const SITE = {
     desc: '全部原创剧本 · 独立制作 · 单部 50 集 · 付费卡点第 6–8 集',
     domestic: [
       {
-        todo: true,
         status: '已上线',
-        platform: '平台待补充',
-        title: '剧名待补充',
-        genre: '题材待补充',
-        logline: '一句话梗概待补充。已上线作品放第一位，平台、题材、可公开的数据一并补齐。',
+        platform: '抖音',
+        title: '扶摇携卿踏景云',
+        genre: '古风 · 权谋 · 大女主',
+        logline: '庆功宴上，镇国长公主萧玉卿被皇弟削爵、丈夫斥责、亲子辱骂。她拔剑斩断温情，向被休弃的女商林瑶伸出手——让天下人看看，女人的算盘，能算天下账。',
         episodes: '50 集',
         paywall: '第 6–8 集',
         featured: true,
+        link: 'https://v.douyin.com/JX4tAxLxChY/',
       },
-      { todo: true, status: '制作中', title: '剧名待补充', genre: '题材待补充', logline: '一句话梗概待补充', episodes: '50 集', paywall: '第 6–8 集' },
+      {
+        status: '已上线',
+        platform: '抖音 · 阳光微剧',
+        title: '工地赔偿金被抢，重回乡下做水产王',
+        genre: '逆袭 · 乡村 · 家庭',
+        logline: '养殖高手林海生为帮儿子成家卖掉毕生心血进城，却被儿媳当成免费保姆。工地坠伤后赔偿金遭侵吞、人遭遗弃，他重返乡村，凭祖传菌种与三十年养殖绝技把臭水塘变成聚宝盆，携徒弟创立「海生记」，绝地反击，最终建成千亩水产产业园。',
+        episodes: '50 集',
+        paywall: '第 6–8 集',
+        link: 'https://v.douyin.com/I__oyPT74DY/',
+      },
       { todo: true, status: '制作中', title: '剧名待补充', genre: '题材待补充', logline: '一句话梗概待补充', episodes: '50 集', paywall: '第 6–8 集' },
       { todo: true, status: '制作中', title: '剧名待补充', genre: '题材待补充', logline: '一句话梗概待补充', episodes: '50 集', paywall: '第 6–8 集' },
       { todo: true, status: '排期中', title: '剧名待补充', genre: '题材待补充', logline: '一句话梗概待补充', episodes: '50 集', paywall: '第 6–8 集' },
