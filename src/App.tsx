@@ -247,6 +247,9 @@ export default function App() {
                     <span>·</span>
                     <span>付费卡点 {d.paywall}</span>
                   </div>
+                  {!d.todo && d.link && (
+                    <a className="drama-link" href={d.link} target="_blank" rel="noreferrer">▶ 看正片</a>
+                  )}
                 </div>
               </Section>
             ))}
