@@ -237,7 +237,10 @@ export default function App() {
                   {d.todo && <TodoBadge />}
                   <div className="drama-item-top">
                     <span className={`status-pill st-${d.status.replace(/\s/g, '')}`}>{d.status}</span>
-                    {d.platform && <span className="drama-platform">{d.platform}</span>}
+                    {d.platform && (Array.isArray(d.platform)
+                      ? d.platform.map(p => <span key={p} className="drama-platform drama-platform-tag">{p}</span>)
+                      : <span className="drama-platform">{d.platform}</span>
+                    )}
                   </div>
                   <h3 className="drama-item-title">{d.title}</h3>
                   <div className="drama-item-genre">{d.genre}</div>
