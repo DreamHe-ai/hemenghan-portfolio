@@ -13,7 +13,7 @@
 export interface DramaItem {
   todo?: boolean
   status: string
-  platform?: string
+  platform?: string | string[]
   title: string
   genre: string
   logline: string
@@ -103,7 +103,7 @@ export const SITE = {
     domestic: [
       {
         status: '已上线',
-        platform: '抖音',
+        platform: ['红果短剧', '河马剧场'],
         title: '扶摇携卿踏景云',
         genre: '古风 · 权谋 · 大女主',
         logline: '庆功宴上，镇国长公主萧玉卿被皇弟削爵、丈夫斥责、亲子辱骂。她拔剑斩断温情，向被休弃的女商林瑶伸出手——让天下人看看，女人的算盘，能算天下账。',
