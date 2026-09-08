@@ -1338,6 +1338,13 @@ body {
 .st-待补充 { background: var(--bg-warm); color: var(--text-light); }
 
 .drama-platform { font-size: 0.75rem; color: var(--text-light); }
+.drama-platform-tag {
+  font-size: 0.7rem;
+  color: #c0453a;
+  border: 1px solid currentColor;
+  border-radius: 20px;
+  padding: 2px 10px;
+}
 
 .drama-item-title {
   font-family: 'Playfair Display', 'PingFang SC', serif;
