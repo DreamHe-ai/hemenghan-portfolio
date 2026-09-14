@@ -1383,6 +1383,11 @@ body {
 }
 .drama-link:hover { opacity: 0.75; }
 
+.drama-release {
+  color: #c0453a;
+  font-weight: 600;
+}
+
 /* ---- 海外短剧子区 ---- */
 .overseas-block {
   margin-top: 64px;
