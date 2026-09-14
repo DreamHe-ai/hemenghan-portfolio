@@ -144,7 +144,7 @@ export const SITE = {
         logline: '农学博士沈穗禾意外穿越成大雍王朝侯府最不受宠的嫡长女，被偏心父母和恶毒妹妹逼着替嫁给被夺爵流放的残废战神谢凛。她凭现代农学知识与灵泉空间，在寸草不生的盐碱滩上种出绝迹三十年的解毒圣药救活谢凛，又勘测暗河凿井破解断水危机，带流放囚犯与老军户开荒种粮，在边关苦寒之地建起自给自足的世外桃源。',
         episodes: '50 集',
         paywall: '第 6–8 集',
-        release: '2026.09',
+        release: '2026.09.12',
         link: 'https://v.douyin.com/7YN7Yb3W3tk/',
       },
       { todo: true, status: '制作中', title: '剧名待补充', genre: '题材待补充', logline: '一句话梗概待补充', episodes: '50 集', paywall: '第 6–8 集' },
