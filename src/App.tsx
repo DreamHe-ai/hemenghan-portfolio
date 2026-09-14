@@ -246,10 +246,6 @@ export default function App() {
                   <div className="drama-item-genre">{d.genre}</div>
                   <p className="drama-item-logline">{d.logline}</p>
                   <div className="drama-item-meta">
-                    <span>{d.episodes}</span>
-                    <span>·</span>
-                    <span>付费卡点 {d.paywall}</span>
-                    {d.release && <span>·</span>}
                     {d.release && <span className="drama-release">{d.release} 上线</span>}
                   </div>
                   {!d.todo && d.link && (
