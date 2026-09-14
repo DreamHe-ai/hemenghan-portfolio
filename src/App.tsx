@@ -249,6 +249,8 @@ export default function App() {
                     <span>{d.episodes}</span>
                     <span>·</span>
                     <span>付费卡点 {d.paywall}</span>
+                    {d.release && <span>·</span>}
+                    {d.release && <span className="drama-release">{d.release} 上线</span>}
                   </div>
                   {!d.todo && d.link && (
                     <a className="drama-link" href={d.link} target="_blank" rel="noreferrer">▶ 看正片</a>
