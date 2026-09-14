@@ -19,6 +19,7 @@ export interface DramaItem {
   logline: string
   episodes: string
   paywall: string
+  release?: string
   featured?: boolean
   link?: string
 }
@@ -109,6 +110,7 @@ export const SITE = {
         logline: '庆功宴上，镇国长公主萧玉卿被皇弟削爵、丈夫斥责、亲子辱骂。她拔剑斩断温情，向被休弃的女商林瑶伸出手——让天下人看看，女人的算盘，能算天下账。',
         episodes: '50 集',
         paywall: '第 6–8 集',
+        release: '2026.08.05',
         featured: true,
         link: 'https://v.douyin.com/JX4tAxLxChY/',
       },
@@ -120,7 +122,19 @@ export const SITE = {
         logline: '养殖高手林海生为帮儿子成家卖掉毕生心血进城，却被儿媳当成免费保姆。工地坠伤后赔偿金遭侵吞、人遭遗弃，他重返乡村，凭祖传菌种与三十年养殖绝技把臭水塘变成聚宝盆，携徒弟创立「海生记」，绝地反击，最终建成千亩水产产业园。',
         episodes: '50 集',
         paywall: '第 6–8 集',
+        release: '2026.09.05',
         link: 'https://v.douyin.com/I__oyPT74DY/',
+      },
+      {
+        status: '已上线',
+        platform: ['红果短剧', '河马剧场'],
+        title: '纨绔逆乾坤',
+        genre: '穿越 · 美食商战 · 逆袭',
+        logline: '商业大亨一朝穿越成落魄纨绔，凭一手八宝酱绝艺白手起家，把小酱菜做出大生意，逆袭打造江南商业帝国。',
+        episodes: '50 集',
+        paywall: '第 6–8 集',
+        release: '2026.09.11',
+        link: 'https://v.douyin.com/V44RpSQ6puE/',
       },
       { todo: true, status: '制作中', title: '剧名待补充', genre: '题材待补充', logline: '一句话梗概待补充', episodes: '50 集', paywall: '第 6–8 集' },
       { todo: true, status: '制作中', title: '剧名待补充', genre: '题材待补充', logline: '一句话梗概待补充', episodes: '50 集', paywall: '第 6–8 集' },
