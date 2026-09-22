@@ -1315,6 +1315,30 @@ body {
 
 .drama-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
 
+/* ---- 海报封面布局 ---- */
+.drama-card-body {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.drama-card-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.drama-poster {
+  width: 96px;
+  aspect-ratio: 3 / 4.2;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+  box-shadow: 0 6px 16px rgba(60, 30, 20, 0.22);
+}
+@media (max-width: 640px) { .drama-poster { width: 78px; } }
+
+
 .drama-item.is-featured { border-color: var(--accent); border-width: 1.5px; }
 
 .drama-item.is-todo {
