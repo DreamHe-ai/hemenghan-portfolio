@@ -63,6 +63,7 @@ function TodoBadge() {
 
 export default function App() {
   const [heroVisible, setHeroVisible] = useState(false)
+  const [shot, setShot] = useState<string | null>(null)
   useEffect(() => {
     const t = setTimeout(() => setHeroVisible(true), 200)
     return () => clearTimeout(t)
@@ -237,7 +238,12 @@ export default function App() {
                 <div className={`drama-item ${d.todo ? 'is-todo' : ''} ${d.featured ? 'is-featured' : ''}`}>
                   {d.todo && <TodoBadge />}
                   <div className="drama-card-body">
-                    {d.poster && <img className="drama-poster" src={d.poster} alt={d.title} loading="lazy" />}
+                    {d.shot && (
+                      <div className="drama-shot-wrap" onClick={() => setShot(d.shot ?? null)} title="点击查看成绩大图">
+                        <img className="drama-shot" src={d.shot} alt={`${d.title} 成绩截图`} loading="lazy" />
+                        <span className="drama-shot-hint">🔍 成绩图</span>
+                      </div>
+                    )}
                     <div className="drama-card-text">
                       <div className="drama-item-top">
                         <span className={`status-pill st-${d.status.replace(/\s/g, '')}`}>{d.status}</span>
@@ -482,6 +488,14 @@ export default function App() {
           </Section>
         </div>
       </footer>
+
+      {/* 成绩截图灯箱 */}
+      {shot && (
+        <div className="lightbox" onClick={() => setShot(null)}>
+          <img src={shot} alt="成绩截图" />
+          <span className="lightbox-close">✕ 点击任意处关闭</span>
+        </div>
+      )}
     </div>
   )
 }
