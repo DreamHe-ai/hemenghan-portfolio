@@ -99,8 +99,8 @@ export const SITE = {
   /* ---------- 4. 短剧作品 ---------- */
   dramas: {
     eyebrow: 'Dramas · 短剧作品',
-    heading: '剧本 × AI 视频',
-    desc: '全部原创剧本 · 独立制作 · 单部 50 集 · 付费卡点第 6–8 集',
+    heading: '【AI仿真人+3D漫短剧】',
+    desc: '',
     domestic: [
       {
         status: '已上线',
