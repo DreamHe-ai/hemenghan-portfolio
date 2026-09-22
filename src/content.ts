@@ -22,7 +22,7 @@ export interface DramaItem {
   release?: string
   featured?: boolean
   link?: string
-  poster?: string
+  shot?: string
 }
 
 export const SITE = {
@@ -107,7 +107,7 @@ export const SITE = {
         status: '已上线',
         platform: ['红果短剧', '河马剧场'],
         title: '新娘变猴子，我改娶女上司',
-        poster: '/posters/monkey.jpg',
+        shot: '/shots/monkey.jpg',
         genre: '都市 · 逆袭 · 婚姻',
         logline: '婚礼前夕，宋辞收到未婚妻李千雪与他人出游的影像——这已是对方第四次延后婚期，周遭流言不断。他冷静止损结束这段感情，当场向一直欣赏自己的上司沈知意提出契约婚姻。他并不知晓，沈知意已默默关注他十五年。面对网络非议与职场考验，沈知意始终坚定支持他；宋辞凭专业能力拿下重大项目实现事业突破，尘封往事随之揭开，二人放下约定，携手步入婚姻。',
         episodes: '50 集',
@@ -120,7 +120,7 @@ export const SITE = {
         status: '已上线',
         platform: ['红果短剧', '河马剧场'],
         title: '替嫁边关，我把荒地变粮仓',
-        poster: '/posters/tijia.jpg',
+        shot: '/shots/tijia.jpg',
         genre: '穿越 · 种田 · 逆袭',
         logline: '农学博士沈穗禾意外穿越成大雍王朝侯府最不受宠的嫡长女，被偏心父母和恶毒妹妹逼着替嫁给被夺爵流放的残废战神谢凛。她凭现代农学知识与灵泉空间，在寸草不生的盐碱滩上种出绝迹三十年的解毒圣药救活谢凛，又勘测暗河凿井破解断水危机，带流放囚犯与老军户开荒种粮，在边关苦寒之地建起自给自足的世外桃源。',
         episodes: '50 集',
@@ -154,7 +154,7 @@ export const SITE = {
         status: '已上线',
         platform: ['红果短剧', '河马剧场'],
         title: '纨绔逆乾坤',
-        poster: '/posters/wnk.jpg',
+        shot: '/shots/wnk.jpg',
         genre: '穿越 · 美食商战 · 逆袭',
         logline: '商业大亨一朝穿越成落魄纨绔，凭一手八宝酱绝艺白手起家，把小酱菜做出大生意，逆袭打造江南商业帝国。',
         episodes: '50 集',
