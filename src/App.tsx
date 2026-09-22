@@ -236,22 +236,27 @@ export default function App() {
               <Section key={i} delay={(i % 3) * 80}>
                 <div className={`drama-item ${d.todo ? 'is-todo' : ''} ${d.featured ? 'is-featured' : ''}`}>
                   {d.todo && <TodoBadge />}
-                  <div className="drama-item-top">
-                    <span className={`status-pill st-${d.status.replace(/\s/g, '')}`}>{d.status}</span>
-                    {d.platform && (Array.isArray(d.platform)
-                      ? d.platform.map(p => <span key={p} className="drama-platform drama-platform-tag">{p}</span>)
-                      : <span className="drama-platform">{d.platform}</span>
-                    )}
+                  <div className="drama-card-body">
+                    {d.poster && <img className="drama-poster" src={d.poster} alt={d.title} loading="lazy" />}
+                    <div className="drama-card-text">
+                      <div className="drama-item-top">
+                        <span className={`status-pill st-${d.status.replace(/\s/g, '')}`}>{d.status}</span>
+                        {d.platform && (Array.isArray(d.platform)
+                          ? d.platform.map(p => <span key={p} className="drama-platform drama-platform-tag">{p}</span>)
+                          : <span className="drama-platform">{d.platform}</span>
+                        )}
+                      </div>
+                      <h3 className="drama-item-title">{d.title}</h3>
+                      <div className="drama-item-genre">{d.genre}</div>
+                      <p className="drama-item-logline">{d.logline}</p>
+                      <div className="drama-item-meta">
+                        {d.release && <span className="drama-release">{d.release} 上线</span>}
+                      </div>
+                      {!d.todo && d.link && (
+                        <a className="drama-link" href={d.link} target="_blank" rel="noreferrer">▶ 看正片</a>
+                      )}
+                    </div>
                   </div>
-                  <h3 className="drama-item-title">{d.title}</h3>
-                  <div className="drama-item-genre">{d.genre}</div>
-                  <p className="drama-item-logline">{d.logline}</p>
-                  <div className="drama-item-meta">
-                    {d.release && <span className="drama-release">{d.release} 上线</span>}
-                  </div>
-                  {!d.todo && d.link && (
-                    <a className="drama-link" href={d.link} target="_blank" rel="noreferrer">▶ 看正片</a>
-                  )}
                 </div>
               </Section>
             ))}
