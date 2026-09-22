@@ -226,7 +226,7 @@ export default function App() {
           <Section>
             <div className="section-label">{SITE.dramas.eyebrow}</div>
             <h2 className="section-title">{SITE.dramas.heading}</h2>
-            <p className="drama-desc">{SITE.dramas.desc}</p>
+            {SITE.dramas.desc && <p className="drama-desc">{SITE.dramas.desc}</p>}
           </Section>
 
           {/* 国内 */}
