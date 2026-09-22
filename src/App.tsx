@@ -82,6 +82,7 @@ export default function App() {
             <a href="#drama">短剧</a>
             <a href="#interactive">互动影游</a>
             <a href="#vibe">Vibe</a>
+            <a href="#projects">项目作品</a>
             <a href="#portfolio">作品集</a>
           </div>
         </div>
@@ -396,7 +397,7 @@ export default function App() {
 
           {/* 项目作品 */}
           <Section delay={200}>
-            <div className="pw-section">
+            <div className="pw-section" id="projects">
               <div className="pw-title-row">
                 <span className="pw-title">项目作品</span>
                 <div className="pw-gradient-line" />
