@@ -43,7 +43,7 @@ export const SITE = {
     heading: ['用营销思维讲故事', '用 AI 把产能翻倍'],
     paras: [
       '本科期间积累了互联网大厂、4A 广告公司、央企出版社、AI 大模型独角兽的多元经历，主攻内容营销与数据增长的交叉地带。',
-      '如今在短剧公司做全职编剧，已产出 14 本完整剧本、5 部上线、9 部在制作或排期。同时我把整套创作流程用 AI 自动化——搭了一条「AI 编剧工厂」，两三天出一本剧本。',
+      '如今在短剧公司做全职编剧，已产出 15 本完整剧本、5 部上线、10 部在制作或排期。同时我把整套创作流程用 AI 自动化——搭了一条「AI 编剧工厂」，两三天出一本剧本。',
     ],
     skills: ['Python', 'SQL', 'C++', 'SPSS', 'Axure', 'Blender', 'Google Ads', 'SEO / SEM'],
     aiTools: ['WorkBuddy', 'DeepSeek', 'ChatGPT', 'Claude', 'Midjourney', 'Coze', 'Vibe Coding'],
