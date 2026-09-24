@@ -741,6 +741,15 @@ body {
   margin-bottom: 14px;
 }
 
+/* 成绩数字：加大加粗 */
+.about-desc .num-hl {
+  font-size: 1.34em;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.015em;
+  margin: 0 1px;
+}
+
 .skill-group {
   margin-bottom: 24px;
 }
