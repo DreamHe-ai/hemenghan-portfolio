@@ -2,6 +2,20 @@ import { useEffect, useRef, useState } from 'react'
 import './App.css'
 import { SITE } from './content'
 
+/* 把文案里的「15 本」「5 部」这类数字加粗放大，突出成绩数据 */
+function Emphasize({ text }: { text: string }) {
+  const parts = text.split(/(\d+\s*本|\d+\s*部)/g)
+  return (
+    <>
+      {parts.map((p, i) =>
+        /^\d+\s*(本|部)$/.test(p)
+          ? <strong key={i} className="num-hl">{p}</strong>
+          : <span key={i}>{p}</span>
+      )}
+    </>
+  )
+}
+
 function useIntersectionObserver(options = {}) {
   const ref = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
@@ -122,7 +136,7 @@ export default function App() {
             <Section delay={100} className="about-left">
               <div className="about-tagline">{SITE.about.tagline}</div>
               {SITE.about.paras.map((t, i) => (
-                <p key={i} className="about-desc">{t}</p>
+                <p key={i} className="about-desc"><Emphasize text={t} /></p>
               ))}
             </Section>
             <Section delay={200} className="about-right">
