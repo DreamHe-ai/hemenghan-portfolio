@@ -106,6 +106,18 @@ export const SITE = {
       {
         status: '已上线',
         platform: ['红果短剧', '河马剧场'],
+        title: '穿越女用我身体玩攻略游戏后悔了',
+        shot: '/shots/chuanyue.jpg',
+        genre: '奇幻 · 灵魂互换 · 逆风翻盘',
+        logline: '沈府二小姐沈知橦因每月十五与现代白领苏梦瑶互换身体，被迫承受未婚先孕等古代烂摊子。面对被当作攻略游戏棋局的处境，两人见招拆招，逆风翻盘，让玩弄他人人生的人自食苦果。',
+        episodes: '50 集',
+        paywall: '第 6–8 集',
+        release: '2026.09.27',
+        featured: true,
+      },
+      {
+        status: '已上线',
+        platform: ['红果短剧', '河马剧场'],
         title: '新娘变猴子，我改娶女上司',
         shot: '/shots/monkey.jpg',
         genre: '都市 · 逆袭 · 婚姻',
@@ -113,7 +125,6 @@ export const SITE = {
         episodes: '50 集',
         paywall: '第 6–8 集',
         release: '2026.09.18',
-        featured: true,
         link: 'https://v.douyin.com/2vVSP4LNp3M/',
       },
       {
