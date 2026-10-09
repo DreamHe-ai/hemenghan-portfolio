@@ -227,7 +227,7 @@ export const SITE = {
 
         title: '穿越女用我身体玩攻略游戏后悔了',
 
-        shot: '/shots/chuanyue.jpg',
+        shot: '/shots/chuanyue2.jpg',
 
         genre: '奇幻 · 灵魂互换 · 逆风翻盘',
 
