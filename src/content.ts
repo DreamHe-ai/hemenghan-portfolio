@@ -200,11 +200,11 @@ export const SITE = {
         title: '穿越女用我身体玩攻略游戏后悔了',
         shot: '/shots/chuanyue2.jpg',
         genre: '奇幻 · 灵魂互换 · 逆风翻盘',
-        logline: '沈府二小姐沈知橦因每月十五与现代白领苏梦瑶互换身体，被迫承受未婚先孕等古代烂摊子。面对被当作攻略游戏棋局的处境，两人见招拆招，逆风翻盘，让玩弄他人人生的人自食苦果。',
+        logline: '沈府二小姐沈知槿因每月十五与现代白领苏梦瑶互换身体，被迫承受未婚先孕等古代烂摊子。面对全家逼迫，她决然留在现代。在现代，沈知槿凭借真才实学和坚韧，解决高利贷纠纷，职场逆袭。同时，古代赵砚青为她洗清冤屈。最终，换魂古镜碎裂，苏梦瑶被烧死，沈知槿在现代年会上光芒万丈，完成了逆袭蝶变。',
         episodes: '50 集',
         paywall: '第 6–8 集',
         release: '2026.09.27',
-        link: 'https://novelquickapp.com/hongguo/ug/pages/video-detail-share?zlink=https%3A%2F%2Fapplink.novelquickapp.com%2FdVu4P%3FschemeParams%3D%257B%2522video_series_id%2522%253A%2522%2522%252C%2522vs_id_type%2522%253A%25221%2522%252C%2522source%2522%253A%25228%2522%252C%2522module_name%2522%253A%2522share%2522%252C%2522video_id%2522%253A%25227688293924862954558%2522%257D&gd_label=click_schema_lhft_share_novelread_android&share_type=1&landing_source=share&genre=205&use_open_launch_app_novel=1&share_channel=wechat&source_channel=wechat&entrance=video_detail_share_button',
+        link: 'https://v.douyin.com/t7rjj_QbU1w/',
       },
       {
         status: '已上线',
