@@ -208,13 +208,14 @@ export const SITE = {
       },
       {
         status: '已上线',
-        platform: ['抖音'],
+        platform: ['抖音', '快手'],
         title: '凤归朝华',
+        shot: '/shots/feng.jpg',
         genre: '古风 · 逆袭 · 复仇',
         logline: '沈清宜为助寒门丈夫陆珩升迁，假装成商户女，失去美貌却未放弃。陆珩得势后羞辱休弃沈清宜并欲夺走女儿抚养权，沈清宜恢复美貌切断陆家资源。镇北战神萧决因旧恩相助，陆珩失势凄惨冻死，柳含烟图谋篡位被戳破。沈清宜揭开真相清算反派，与萧决共守家国，开创盛世。',
         episodes: '50 集',
         paywall: '第 6–8 集',
-        release: '2026.10.25',
+        release: '2026.10.24',
         link: 'https://v.douyin.com/va953u6Kjh8/',
       },
       {
