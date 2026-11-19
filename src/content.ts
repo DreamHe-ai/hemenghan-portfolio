@@ -227,6 +227,7 @@ export const SITE = {
         episodes: '62 集',
         paywall: '第 6–8 集',
         release: '2026.11.03',
+        link: 'https://v.douyin.com/qhNZOPA7kgw/',
       },
       {
         status: '已上线',
